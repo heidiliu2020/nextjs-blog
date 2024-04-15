@@ -1,19 +1,20 @@
-# Next.js Tailwind Contentlayer Blog Starter
+# Next.js Tailwind Contentlayer Blog
 
 ![Next.js Tailwind Contentlayer Blog Starter](/docs/cover-image.png)
 
-Blog starter template with modern frontend tech stack like Next.js, Tailwind CSS, Contentlayer, i18Next
+This is a Next.js Blog, based on modern frontend tech stacks like Next.js, Tailwind CSS, Contentlayer, i18Next.
 
 Inspired and modified from [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
 
 ## Demo
 
-[https://nextjs-tailwind-contentlayer-blog-starter.vercel.app/](https://nextjs-tailwind-contentlayer-blog-starter.vercel.app/)
+[https://heidiliu2020-nextjs-blog.vercel.app/](https://heidiliu2020-nextjs-blog.vercel.app/)
 
 Or scroll down to see the [screenshots](#screenshots)
 
 ## Features
 
+- Next.js with Typescript
 - Writing with local Markdown / MDX files
 - Blazing fast performance
 - SEO friendly
@@ -27,7 +28,7 @@ Or scroll down to see the [screenshots](#screenshots)
 
 ## Tech stack
 
-- [Next.js](https://nextjs.org/): React meta framework
+- [Next.js](https://nextjs.org/): React meta-framework
 - [Contentlayer](https://github.com/contentlayerdev/contentlayer): MDX processor
 - [Tailwind CSS](https://tailwindcss.com/): CSS framework
 - [next-i18next](https://github.com/i18next/next-i18next): localization
@@ -43,7 +44,7 @@ Or scroll down to see the [screenshots](#screenshots)
 Start local server for development:
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 ## Screenshots
