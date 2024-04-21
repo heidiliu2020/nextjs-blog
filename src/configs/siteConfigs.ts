@@ -1,4 +1,4 @@
-const fqdn = 'https://nextjs-tailwind-contentlayer-blog-starter.vercel.app';
+const fqdn = 'https://heidiliu2020-nextjs-blog.vercel.app';
 const logoPath = '/logo.png';
 const bannerPath = '/og-image.png';
 
@@ -7,14 +7,14 @@ export const siteConfigs = {
   titleShort: 'Next Blog',
   description:
     'Blog starter template with modern frontend technologies like Next.js, Tailwind CSS, Contentlayer, i18Next',
-  author: 'Tony Stark',
-  credit: 'Stark Industries',
-  email: 'stark@example.com',
+  author: 'Heidi Liu',
+  credit: 'Heidi Liu',
+  email: 'liuheidi2020@gmail.com',
   fqdn: fqdn,
   logoPath: logoPath,
   logoUrl: fqdn + logoPath,
   bannerPath: bannerPath,
   bannerUrl: fqdn + bannerPath,
-  twitterID: '@EasonChang_me',
-  datePublished: '2022-09-01',
+  twitterID: '@heidiliu2020',
+  datePublished: '2024-04-19',
 };
