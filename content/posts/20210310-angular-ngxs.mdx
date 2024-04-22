@@ -124,12 +124,12 @@ export class AppModule {}
 ### 建立 Actions：要執行的方法
 
 - 可直接在 state class 底下，設定要被執行的 action 方法
-- addTodo(StateContenxt<T>, ActionClass? )
-    - StateContenxt<T>：取得可操作此 state 的 context 物件，內建幾種方法：
-        - getState(): T：取得目前 state 的值
-        - setState(val: T)：重新建立 or 重設目前 state 的值
-        - patchState(val: part<T>)：更新目前 state 的值
-        - dispatch([actions])：觸發一或多個 actions，可傳入陣列
+- `addTodo(StateContenxt<T>, ActionClass? )`
+    - `StateContenxt<T>`：取得可操作此 state 的 context 物件，內建幾種方法：
+        - `getState()`: T：取得目前 state 的值
+        - `setState(val: T)`：重新建立 or 重設目前 state 的值
+        - `patchState(val: part<T>)`：更新目前 state 的值
+        - `dispatch([actions])`：觸發一或多個 actions，可傳入陣列
     - ActionClass：取得 action 對應的 Class 實體
 - `todos.state.ts`：
 
