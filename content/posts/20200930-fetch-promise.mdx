@@ -16,22 +16,24 @@ type: Post
 > 本篇為 Limedy「Fetch 與 Promise 補充系列」課程的學習筆記。如有錯誤歡迎指正。
 
 以下內容將涵蓋：
+
 1. 如何發出 HTTP 請求
 2. 回顧 XMLHttpRequest
 3. 如何使用 Fetch
 4. 什麼是 Promise
- 
+
 ---
 
 ## 如何發出 HTTP 請求
 
 想要在前端網頁發出 Ajax Request，可以有下列兩種方式：
+
 1. XMLHttpRequest
 2. Fetch
 
 ## 回顧 XMLHttpRequest
 
-[XMLHttpRequest]((https://developer.mozilla.org/zh-TW/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest))，簡稱 XHR。在[課程第八週](https://github.com/heidiliu2020/This-is-Codediary/blob/master/week8_%E5%82%B3%E9%80%81%E8%B3%87%E6%96%99%E7%9A%84%E6%96%B9%E5%BC%8F%E3%80%81%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E9%99%90%E5%88%B6.md)時曾提到，我們可利用 XMLHttpRequest 物件來實現非同步請求，以下列程式碼為例：
+[XMLHttpRequest](<(https://developer.mozilla.org/zh-TW/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)>)，簡稱 XHR。在[課程第八週](https://github.com/heidiliu2020/This-is-Codediary/blob/master/week8_%E5%82%B3%E9%80%81%E8%B3%87%E6%96%99%E7%9A%84%E6%96%B9%E5%BC%8F%E3%80%81%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E9%99%90%E5%88%B6.md)時曾提到，我們可利用 XMLHttpRequest 物件來實現非同步請求，以下列程式碼為例：
 
 ```javascript=
 function reqListener () {
@@ -55,9 +57,9 @@ request.send();
 
 1. 建立一個 XMLHttpRequest 物件：request
 2. 開啟一個 URL `.open()`
-    - 設定三個參數：請求方法﹑請求的 URL、是否非同步傳送請求
-4. 掛載 load callback：加載完成時會呼叫 reqListener 函式
-5. 發起一個請求 `.send()`
+   - 設定三個參數：請求方法﹑請求的 URL、是否非同步傳送請求
+3. 掛載 load callback：加載完成時會呼叫 reqListener 函式
+4. 發起一個請求 `.send()`
 
 如果利用 Fetch 來達到相同結果，程式碼如下：
 
@@ -345,7 +347,7 @@ myPromise.then((data) => {
   }).catch(err => {
     console.log('err', err)         // 錯誤
   })
-  
+
 // 印出 data 3
 ```
 
@@ -505,7 +507,7 @@ async function main() {
 }
 ```
 
-
 參考資料：
-- [ES6入門之Promise物件](https://www.itread01.com/content/1570606323.html)
+
+- [ES6 入門之 Promise 物件](https://www.itread01.com/content/1570606323.html)
 - [JavaScript 的同步與非同步 - 從 Callback function 到 Promise](https://nicolakacha.coderbridge.io/2020/09/11/sync-async/)

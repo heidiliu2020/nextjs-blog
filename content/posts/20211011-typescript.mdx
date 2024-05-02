@@ -14,10 +14,11 @@ type: Post
 ---
 
 本篇為以下資源之學習筆記：
+
 - [Github - microsoft/TypeScript](https://github.com/microsoft/TypeScript)
 - [TypeScript 新手指南](https://willh.gitbook.io/typescript-tutorial/)
 - [Angular Tutorial for Beginners: Learn Angular & TypeScript - Programming with Mosh
-](https://www.youtube.com/watch?v=k5E2AVpwsko)
+  ](https://www.youtube.com/watch?v=k5E2AVpwsko)
 
 ## 什麼是 TypeScript？
 
@@ -39,7 +40,7 @@ type: Post
 
 > 可在任何瀏覽器、任何作業系統、任何能運行 JavaScript 的地方執行。並且是完全開源的。
 
-簡單來說，TypeScript 是⋯⋯
+簡單來說，TypeScript 是 ⋯⋯
 
 - 一個基於 JavaScript 的超集合（SuperSet）
 - 提供型別系統（Type System），能夠在開發時期宣告型別
@@ -84,12 +85,12 @@ console.log(sayHello(name));
 
 可以發現差別就在於「型別」，關於 TypeScript 如何處理型別，主要可分為這三個概念，也就是所謂的型別系統：
 
-* Type annotation（型別註解）
-  * 主動，大多使用在初始化階段，例如宣告變數或函式參數等
-* Type Inference（型別推論）
-  * 被動，自動推論資料型別的機制
-* Type Assertion（型別斷言）
-  * 主動，通常用於接收外部參數，需明確指定資料型別
+- Type annotation（型別註解）
+  - 主動，大多使用在初始化階段，例如宣告變數或函式參數等
+- Type Inference（型別推論）
+  - 被動，自動推論資料型別的機制
+- Type Assertion（型別斷言）
+  - 主動，通常用於接收外部參數，需明確指定資料型別
 
 ### 型別註解 Type annotation
 
@@ -97,7 +98,7 @@ console.log(sayHello(name));
 
 ```typescript=
 // 變數的型別註解
-let name: string = 'Heidi';   
+let name: string = 'Heidi';
 
 // 函式參數/回傳值的型別註解
 function sayHello(person: string): string {
@@ -186,6 +187,7 @@ myFavoriteNumber = 7;
 ### 陣列型別 Array
 
 表示陣列的方式，大致可分為以下幾種：
+
 - 型別 + 方括號：`type[]`
 - 陣列泛型（Array Generic）：`Array<elemType>`
 - 用介面表示陣列
@@ -312,15 +314,15 @@ let randomNumber: string = Math.random()
 - 第一種：`<型別>值 `（`angle-bracket <>`）
 
 ```typescript=
-let code: any = 'Hello'; 
-let helloCode = <string> code; 
+let code: any = 'Hello';
+let helloCode = <string> code;
 ```
 
 - 第二種：`值 as 型別`（as keyword）
 
 ```typescript=
-let code: any = 'Hello'; 
-let helloCode = code as string; 
+let code: any = 'Hello';
+let helloCode = code as string;
 ```
 
 兩者語法效果相同，但如果是在 React 專案中，使用 JSX 語法時只能用第二種。
@@ -365,11 +367,11 @@ console.log(getLength("abc"))    // 3
 
 ### 複習：那些常用的 ES6+ 語法
 
-* let 與 const 宣告變數，以及變數作用域的不同
-  * var：function scope 函式作用域
-  * let 與 const：block scope 區塊作用域
-* 解構賦值（Destructuring assignment）
-  * 能夠快速建立變數並取值
+- let 與 const 宣告變數，以及變數作用域的不同
+  - var：function scope 函式作用域
+  - let 與 const：block scope 區塊作用域
+- 解構賦值（Destructuring assignment）
+  - 能夠快速建立變數並取值
 
 ```javascript=
 const pcBrands = ['Apple', 'Lenovo', 'Acer'];
@@ -382,7 +384,7 @@ console.log(second);     // Lenovo
 console.log(third);      // Acer
 ```
 
-* 箭頭函式（Arrow Functions）
+- 箭頭函式（Arrow Functions）
 
 ```javascript=
 const foo = () => {
@@ -397,9 +399,9 @@ foo();    // "ES6"
 foo2();   // "ES5"
 ```
 
-* 模板字串（Template Literals）
-  * ES5：使用單引號（''）或雙引號（""）
-  * ES6：使用反引號（``）
+- 模板字串（Template Literals）
+  - ES5：使用單引號（''）或雙引號（""）
+  - ES6：使用反引號（``）
 
 ```javascript=
 // 可用於字串拼接
@@ -407,8 +409,8 @@ console.log("Hello, " + name)
 console.log(`Hellooo,  ${name}`)
 ```
 
-* 展開語法和其餘語法（Spread Syntax/Rest Syntax）
-  * 根據不同用途使用 `...` 運算子
+- 展開語法和其餘語法（Spread Syntax/Rest Syntax）
+  - 根據不同用途使用 `...` 運算子
 
 #### 展開語法：解壓縮，常用於複製一個物件或陣列，並為該物件增加屬性、或陣列添加元素
 
@@ -417,7 +419,7 @@ const PCOnSale = ['Apple', 'Lenovo', 'Acer'];
 const allPCs = [...PCOnSale, 'HP', 'ASUS', 'TOSHIBA'];
 
 console.log(allPCs);
-// ["Apple", "Lenovo", "Acer", "HP", "ASUS", "TOSHIBA"] 
+// ["Apple", "Lenovo", "Acer", "HP", "ASUS", "TOSHIBA"]
 ```
 
 #### 其餘語法：壓縮，把沒有被取出來的物件屬性或陣列元素都放到一個壓縮包裡
@@ -427,7 +429,7 @@ const PCBrands = ["Apple", "Lenovo", "Acer", "HP", "ASUS", "TOSHIBA"] ;
 const [first, second, third, ...other] = PCBrands;
 
 console.log(other);
-// ["HP", "ASUS", "TOSHIBA"] 
+// ["HP", "ASUS", "TOSHIBA"]
 ```
 
 - Default Parameters 設定參數預設值
@@ -442,9 +444,9 @@ console.log(other);
 
 主要可分為三個方面：
 
-* Class 類型
-* Interface 介面
-* 未來的 ES2016+ 特性，例如：Annotations 註解, Decorators 裝飾器, async/await 異步/等待
+- Class 類型
+- Interface 介面
+- 未來的 ES2016+ 特性，例如：Annotations 註解, Decorators 裝飾器, async/await 異步/等待
 
 ### 介面 Interface：定義抽象物件的型別
 
@@ -474,7 +476,6 @@ let heidi: Person = {
 ```
 
 當 Class 用 implements 指定要實作的 Interface，除了可選屬性（在屬性名稱後方加上問號 `?`），必須實作介面內所有的 Method 和 Property，否則會在編譯時報錯。
-
 
 ## 結語
 

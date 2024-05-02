@@ -13,6 +13,7 @@ categories:
 date: 2020-09-09 11:24:00
 type: Post
 ---
+
 > 本篇為 [[FE102] 前端必備：JavaScript](https://lidemy.com/p/fe102-javascript) 這門課程的學習筆記。如有錯誤歡迎指正。
 
 當我們運用 JavaScript 在網頁進行操作時，主要可分為下列三大面向：
@@ -111,9 +112,9 @@ request.addEventListener('load', function () {
 1. 瀏覽不中斷（即不需要換頁）：可提高使用者體驗
 2. 只需進行局部內容的資料抽換：降低資料量，提高網頁效率
 3. 用 Ajax 和表單傳送資料的差異，在於如何處理「回傳結果」：
+
 - 表單：是以 html 來傳送資料，當瀏覽器接收到 response 後，頁面就會重新刷新。
 - Ajax：當瀏覽器接收 response，會轉傳資料至 JavaScript，進行局部內容的資料抽換，不須換頁就能即時更新頁面。
-
 
 參考資料：[什麼是 Ajax？ 搞懂非同步請求 (Asynchronous request)概念](https://tw.alphacamp.co/blog/ajax-asynchronous-request)
 
@@ -154,13 +155,15 @@ request.addEventListener('load', function () {
 
 首先要瞭解下列元素不受同源政策管理：
 
-- `<img>` ：圖片沒有安全性問題
-- `<script>`：能夠引入不同源的 JS
+```
+- <img> ：圖片沒有安全性問題
+- <script>：能夠引入不同源的 JS
+```
 
 #### JSOPN
 
 - JSON，全名是 JSON with padding，這裡的 padding 是填充的意思
-- 是資料格式JSON的一種「使用模式」，和 CORS 同樣能讓網頁從別的網域要資料
+- 是資料格式 JSON 的一種「使用模式」，和 CORS 同樣能讓網頁從別的網域要資料
 
 透過 JSONP 資料格式，我們可以先藉由 `<script src = "要 GET 資料的網域名稱"></script>` 讀取網頁的 JS 資訊，再透過指定的 function 進行輸出，就能夠拿到想要的資料。
 
@@ -250,14 +253,17 @@ request.addEventListener('load', function () {
 也就是說，利用 AJAX 送出一個 HTTP 請求，必須有三個步驟：
 
 ### 1. 建立一個 XMLHttpRequest 物件
+
 - XMLHttpRequest 是一個 JavaScript 準備好的物件，主是要拿來發送 request 與接收 response。
 - `const request = new XMLHttpRequest()`
 
 ### 2. 開啟一個 url .open()
+
 - `request.open(method, url[, async[, user[, password]]])`
 - 參數分別為：Method、URL、同步/非同步、使用者、密碼
 
 ### 3. 發起一個請求 .send()
+
 - `request.send()`
 
 完成這三個步驟就完成送出一個 HTTP 請求，但我們還需要透過「監聽載入」來取得資料：`.onload`，當 load 時就會執行該 function。
@@ -273,5 +279,6 @@ request.addEventListener('load', function () {
 - `.status`：拿到 Http status code 狀態碼
 
 參考資料：
+
 1. [[第九週]透過瀏覽器交換資料 — 表單、AJAX、XMLHttpRequest](https://medium.com/@miahsuwork/%E7%AC%AC%E4%B9%9D%E9%80%B1-%E9%80%8F%E9%81%8E%E7%80%8F%E8%A6%BD%E5%99%A8%E4%BA%A4%E6%8F%9B%E8%B3%87%E6%96%99-%E8%A1%A8%E5%96%AE-ajax-xmlhttprequest-fef80856da16)
 2. [[第九週]透過瀏覽器交換資料 — 同源政策、CORS、第三種方式 JSONP](https://medium.com/@miahsuwork/%E7%AC%AC%E4%B9%9D%E9%80%B1-%E9%80%8F%E9%81%8E%E7%80%8F%E8%A6%BD%E5%99%A8%E4%BA%A4%E6%8F%9B%E8%B3%87%E6%96%99-%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96-cors-%E7%AC%AC%E4%B8%89%E7%A8%AE%E6%96%B9%E5%BC%8F-jsonp-e45603886287)

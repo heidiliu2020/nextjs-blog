@@ -22,12 +22,12 @@ type: Post
  P1 學習如何使用 Express 及其相關套件
  P1 我理解為什麼會需要框架
 ```
- 
+
 ---
 
 ## 要學框架，先從不用框架開始
 
-在講解什麼是 Express 框架以前，先來談談什麼是 Server，其實 Server 也是一種程式，而 [Node.js](https://nodejs.org/en/) 本身就有提供內建 Library，讓我們能透過引入 modeule 來使用 Server 的功能。 
+在講解什麼是 Express 框架以前，先來談談什麼是 Server，其實 Server 也是一種程式，而 [Node.js](https://nodejs.org/en/) 本身就有提供內建 Library，讓我們能透過引入 modeule 來使用 Server 的功能。
 
 ### 範例：以 Node.js 實作一個 Server
 
@@ -123,7 +123,7 @@ server.listen(5001)
 
 ## 初探 Express
 
-什麼是 Express？根據[官網]((https://expressjs.com/))介紹：
+什麼是 Express？根據[官網](<(https://expressjs.com/)>)介紹：
 
 > Express: Fast, unopinionated, minimalist web framework for Node.js
 
@@ -259,7 +259,7 @@ $ npm install ejs
 <%=  %> 會直接印出原始碼，用於輸出資料，避免被解析成語法，可視為一種 XSS 防禦
 
 // 可和 PHP 寫法做比較
-<?PHP echo   ?> 
+<?PHP echo   ?>
 ```
 
 2. 接著回到剛才的 index.js 檔，加上 `app.set()` 設定要使用的 view engine：
@@ -272,7 +272,7 @@ app.set('view engine', 'ejs')
 3. 預設目錄會是 `/views`，因此需要新建一個資料夾 views，並在資料夾中建立一個 hello.ejs 檔
 
 4. 記得在 VS Code 等編譯器中安裝 ejs 插件，才能夠解析 ejs 檔：
-![](https://i.imgur.com/PVJjWAG.png)
+   ![](https://i.imgur.com/PVJjWAG.png)
 
 5. 在 hello.ejs 檔中輸入簡單的程式碼進行測試，例如：`<h1>hello</h1>`
 6. 接著調整 index.js 程式碼，告訴 express 去 render views 目錄底下叫做 hello 的檔案：
@@ -341,7 +341,6 @@ app.listen(port, () => {
 ```
 
 2. 接著編輯 todos.ejs 檔的內容，也就是 todos 的 view 部分。要輸出內容的語法是 `<%= code %>`，而不是用 console.log()，或是 PHP 的 echo：
-
 
 ```javascript=
 <h1>Todos</h1>
@@ -417,6 +416,7 @@ module.exports = todoModel
 
 1. 同樣在 express 目錄，新增一個 controllers 資料夾，並在裡面建立 todo.js 檔
 2. 接著重構程式碼：
+
 - 從 model 引入資料
 - 建立物件，並透過方法（function）來存取資料，這裡會和一開始中 index.js 的 app.get() 寫法類似
 - 再交由 view engine 進行 render
@@ -470,6 +470,7 @@ app.get('/todos/:id',
 ```
 
 這樣就完成了有 MCV 架構的程式：
+
 - express 目錄的 index.js：提供路由
 - views 目錄的 todo.ejs 和 todos.ejs：提供模版
 - models 目錄的 todo.js：提供資料
@@ -479,7 +480,7 @@ app.get('/todos/:id',
 
 ## 串接 Node.js 與 MySQL
 
-在瞭解到基本的 Express 架構之後，再來我們要試著把  todo 資料存在資料庫。這是因為在實際專案中，後端會把資料存放在資料庫，因此我們要來學習如何透過 Node.js 和 MySQL 溝通。
+在瞭解到基本的 Express 架構之後，再來我們要試著把 todo 資料存在資料庫。這是因為在實際專案中，後端會把資料存放在資料庫，因此我們要來學習如何透過 Node.js 和 MySQL 溝通。
 
 > 注意不是用 Express 和 MySQL 溝通！我們要操作的是 Nodes.js，Express 提供的是框架！
 
@@ -495,7 +496,7 @@ $ npm install mysql
 
 引入 MySQL 模組後，接著就可以進行資料庫的連線和其他操作了。
 
-### Step2. 新增 app 資料庫 &  todos 資料表
+### Step2. 新增 app 資料庫 & todos 資料表
 
 之前在[第九週學到如何使用 MySQL 資料庫](https://hackmd.io/@Heidi-Liu/note-be101-php-and-mysql)，這一次我們同樣可以透過 phpmyadmin 這個 GUI 介面來進行資料庫 CURD，步驟如下：
 
@@ -561,7 +562,7 @@ Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using 
 rd: YES)
 ```
 
-後來是在使用者帳號頁面發現，root 這組帳號當初設定不用密碼就可以登入了，真是烏龍一場XD
+後來是在使用者帳號頁面發現，root 這組帳號當初設定不用密碼就可以登入了，真是烏龍一場 XD
 
 ![](https://i.imgur.com/KGhvnqv.png)
 
@@ -732,5 +733,6 @@ module.exports = todoController
 也透過實作來複習之前講解過的 MVC 框架，透過將程式碼分成 Model、View 和 Controller 三個部分，再搭配不同 Route 分別進行處理，不但能夠簡化程式碼，也能透過分工便於後續維護。
 
 參考資料：
+
 - [使用 Node.js + Express 建構一個簡單的微博網站](https://cythilya.github.io/2014/11/23/nodejs-express-microblog/)
 - [用 Express & Sequelize 打造 MVC 餐廳網站（上）](https://nicolakacha.coderbridge.io/2020/10/25/express-mvc-practice-1/)

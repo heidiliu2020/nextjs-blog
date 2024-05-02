@@ -12,6 +12,7 @@ categories:
 date: 2020-07-26 13:52:00
 type: Post
 ---
+
 > 本篇為 [[FE101] 前端基礎：HTML 與 CSS](https://lidemy.com/p/fe101-html-css) 這門課程的學習筆記。如有錯誤歡迎指正。
 
 ```
@@ -25,7 +26,7 @@ type: Post
  P2 你知道 :nth-child 的各種用法
  P2 你熟悉 CSS selector，可以輕鬆選到想選到的元素
 ```
- 
+
 ## 什麼是 CSS？
 
 Cascading Style Sheets 階層式樣式表
@@ -77,9 +78,10 @@ Cascading Style Sheets 階層式樣式表
 ### 使用外部 CSS
 
 使用 `<link>` 元素，從外部引用 CSS 檔，這是一個空白的元素（不需要結束標記）：
+
 - `href`：指定 CSS 檔的路徑，通常放在 css 或 styles 資料夾
 - `rel`：表示 HTML 頁面與連結其連結檔案的關係，連到 CSS 檔其值應為 stylesheet
- 
+
 將 style.css 引入 index.html 為例：
 
 ```htmlmixed=
@@ -114,7 +116,7 @@ selector {
 }
 ```
 
-### 全域選擇器 
+### 全域選擇器
 
 - Universal Selector：套用到文件的所有元素。
 
@@ -198,7 +200,7 @@ a:hover {
 
 ### nth-child(n) 選擇器
 
-參考資料：[CSS選取第幾個標籤元素：nth-child(n)、first-child、last-child](https://www.itread01.com/content/1541105823.html)
+參考資料：[CSS 選取第幾個標籤元素：nth-child(n)、first-child、last-child](https://www.itread01.com/content/1541105823.html)
 
 ### CSS Selector 的權重計算方式
 
@@ -231,8 +233,6 @@ a:hover {
 
 1. [強烈推薦收藏好物 – CSS Specificity (CSS 權重一覽)](https://muki.tw/tech/css-specificity-document/)
 2. [你對 CSS 權重真的足夠了解嗎？](https://juejin.im/post/5afa98bf51882542c832e5ec)
-
-
 
 ## box model 盒模型
 
@@ -268,6 +268,7 @@ a:hover {
 而 margin 在兩種盒模型都是額外加上去的，並不會影響盒子長寬。
 
 參考資料：
+
 1. [盒模型- Web 开发者指南| MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Getting_started/Boxes)
 2. [CSS box model 盒子模型- Wibibi](https://www.wibibi.com/info.php?tid=CSS_box_model_%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B)
-3. [CSS排版基礎觀念（一）—— box-model](https://medium.com/passionred/css%E6%8E%92%E7%89%88%E5%9F%BA%E7%A4%8E%E8%A7%80%E5%BF%B5-%E4%B8%80-box-model-13a9a3dfe84f)
+3. [CSS 排版基礎觀念（一）—— box-model](https://medium.com/passionred/css%E6%8E%92%E7%89%88%E5%9F%BA%E7%A4%8E%E8%A7%80%E5%BF%B5-%E4%B8%80-box-model-13a9a3dfe84f)

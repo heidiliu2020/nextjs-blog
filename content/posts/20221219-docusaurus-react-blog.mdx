@@ -26,14 +26,14 @@ type: Post
 
 主要會介紹如何使用 Docusaurus 搭配 React 快速架設個人網站。文章可分為下列幾個部分：
 
-+ 前言
-+ 什麼是 Docusaurus？
-  + 為什麼選擇 Docusaurus？
-+ 環境建置
-+ 專案架構
-  + Docusaurus 設定檔
-  + 建立模板頁面
-  + 支援 TypeScript 語法
+- 前言
+- 什麼是 Docusaurus？
+  - 為什麼選擇 Docusaurus？
+- 環境建置
+- 專案架構
+  - Docusaurus 設定檔
+  - 建立模板頁面
+  - 支援 TypeScript 語法
 
 ## 什麼是 Docusaurus？
 
@@ -50,12 +50,12 @@ type: Post
 
 開頭有提到 Docusaurus 幾項特點，再參照官網說明後整理如下：
 
-+ 支援 Markdown 擴充格式 [MDX](https://mdxjs.com/)
-+ 可在文檔中編寫 [JSX](https://zh-hant.reactjs.org/docs/introducing-jsx.html) 語法，並渲染為 React 的 component
-+ 支援 i18n，可使用 [Crowdin](https://crowdin.com/) 將文檔翻譯成 70 多種語言
-+ 文檔版本控制
-+ [algolia](https://www.algolia.com/) 搜索功能
-+ 實際應用範例：[Create React App](https://create-react-app.dev/)、[React Native](https://reactnative.dev/)、[Gulp](https://gulpjs.com/) 等，更多可參考[官網列表](https://docusaurus.io/zh-CN/showcase)
+- 支援 Markdown 擴充格式 [MDX](https://mdxjs.com/)
+- 可在文檔中編寫 [JSX](https://zh-hant.reactjs.org/docs/introducing-jsx.html) 語法，並渲染為 React 的 component
+- 支援 i18n，可使用 [Crowdin](https://crowdin.com/) 將文檔翻譯成 70 多種語言
+- 文檔版本控制
+- [algolia](https://www.algolia.com/) 搜索功能
+- 實際應用範例：[Create React App](https://create-react-app.dev/)、[React Native](https://reactnative.dev/)、[Gulp](https://gulpjs.com/) 等，更多可參考[官網列表](https://docusaurus.io/zh-CN/showcase)
 
 ## 環境建置
 
@@ -76,13 +76,13 @@ $ npx docusaurus --version
 $ cd my-blog
 ```
 
-3. 運行專案 
+3. 運行專案
 
 ```
 $ npm run start
 ```
 
-4. 即可在 `http://localhost:3000/` 看到專案預設頁面如下，自動建立了首頁和 Tutorial、Blog 兩個文檔頁面： 
+4. 即可在 `http://localhost:3000/` 看到專案預設頁面如下，自動建立了首頁和 Tutorial、Blog 兩個文檔頁面：
 
 ![](https://i.imgur.com/4Ypjr15.png)
 
@@ -122,28 +122,28 @@ my-website         // 根目錄
 └── yarn.lock
 ```
 
-+ blog
-  + 預設名稱：blog-examples-from-docusaurus)
-  + 路由：`/blog`
-  + 存放 blog markdown 檔，也就是部落格文章
-  + 文檔名稱需符合 `yyyy-mm-dd-file-name.md`
-+ docs
-  + 預設名稱：docs-examples-from-docusaurus
-  + 路由：`/docs`
-  + 存放 markdown 文檔
-+ src
-  + css
-    + custom.css 用來自定義樣式
-  + pages
-    + 預設的 index.js 包含 Home Component
-    + 可用來新增頁面和對應路由，參考[官網教學](https://docusaurus.io/docs/creating-pages)
-+ static
-  + 存放靜態資源，例如圖片檔
-+ docusaurus.config.js
-  + 網站配置設定檔
-  + 等同於 Docusaurus v1 中的 siteConfig.js 檔
-+ sidebars.js
-  + 自定義 docs 側邊欄
+- blog
+  - 預設名稱：blog-examples-from-docusaurus)
+  - 路由：`/blog`
+  - 存放 blog markdown 檔，也就是部落格文章
+  - 文檔名稱需符合 `yyyy-mm-dd-file-name.md`
+- docs
+  - 預設名稱：docs-examples-from-docusaurus
+  - 路由：`/docs`
+  - 存放 markdown 文檔
+- src
+  - css
+    - custom.css 用來自定義樣式
+  - pages
+    - 預設的 index.js 包含 Home Component
+    - 可用來新增頁面和對應路由，參考[官網教學](https://docusaurus.io/docs/creating-pages)
+- static
+  - 存放靜態資源，例如圖片檔
+- docusaurus.config.js
+  - 網站配置設定檔
+  - 等同於 Docusaurus v1 中的 siteConfig.js 檔
+- sidebars.js
+  - 自定義 docs 側邊欄
 
 接著開啟剛才建置完成的專案目錄，docs 資料夾內的文檔對應頁面如下：
 
@@ -155,7 +155,7 @@ my-website         // 根目錄
 
 #### Required fields 必要配置
 
-+ 網站名稱、連結、根目錄
+- 網站名稱、連結、根目錄
 
 ```javascript=
 module.exports = {
@@ -167,7 +167,7 @@ module.exports = {
 
 #### Optional fields 自選配置
 
-+ 網站圖示、網站標語
+- 網站圖示、網站標語
 
 ```javascript=
 module.exports = {
@@ -177,7 +177,7 @@ module.exports = {
 };
 ```
 
-+ i18n 多國語系
+- i18n 多國語系
 
 ```javascript=
 module.exports = {
@@ -198,7 +198,7 @@ module.exports = {
 };
 ```
 
-+ GitHub 用戶、專案、主機名稱，用於專案部署
+- GitHub 用戶、專案、主機名稱，用於專案部署
 
 ```javascript=
 module.exports = {
@@ -209,7 +209,7 @@ module.exports = {
 };
 ```
 
-+ 自定義主題外觀：例如 navbar、footer
+- 自定義主題外觀：例如 navbar、footer
 
 ```javascript=
 module.exports = {
@@ -272,7 +272,7 @@ module.exports = {
 };
 ```
 
-+ plugins 插件
+- plugins 插件
 
 ```javascript=
 module.exports = {
@@ -280,7 +280,7 @@ module.exports = {
 };
 ```
 
-+ themes 主題
+- themes 主題
 
 ```javascript=
 module.exports = {
@@ -295,7 +295,7 @@ module.exports = {
 };
 ```
 
-+ customFields：因 Docusaurus 不允許 `docusaurus.config.js` 檔案中存在未知欄位，可在此區塊自定義欄位
+- customFields：因 Docusaurus 不允許 `docusaurus.config.js` 檔案中存在未知欄位，可在此區塊自定義欄位
 
 ```javascript=
 module.exports = {
@@ -306,7 +306,7 @@ module.exports = {
 };
 ```
 
-+ scripts：`<script>` 經過編譯後會插入 HTML 的 `<head>`
+- scripts：`<script>` 經過編譯後會插入 HTML 的 `<head>`
 
 ```javascript=
 module.exports = {
@@ -322,8 +322,6 @@ module.exports = {
   ],
 };
 ```
-
-
 
 ### 建立模板頁面
 
@@ -346,19 +344,19 @@ title 是瀏覽器頁面的標題
 
 ### 支援 TypeScript 語法
 
-+ 在初始化專案的語法最後，加上 `--typescript`：
+- 在初始化專案的語法最後，加上 `--typescript`：
 
 ```
 npx @docusaurus/init@latest init my-website classic --typescript
 ```
 
-+ 接著安裝 typescript 需要的相關套件：
+- 接著安裝 typescript 需要的相關套件：
 
 ```
 npm install --save-dev typescript @docusaurus/module-type-aliases @types/react @types/react-router-dom @types/react-helmet @tsconfig/docusaurus
 ```
 
-+ 在位於根目錄的 tsconfig.json 檔案中，新增以下內容：
+- 在位於根目錄的 tsconfig.json 檔案中，新增以下內容：
 
 ```typescript=
 {
@@ -377,10 +375,10 @@ npm install --save-dev typescript @docusaurus/module-type-aliases @types/react @
 
 ## 參考資料
 
-+ [Docusaurus 2 介紹與使用](https://eddychang.me/docusaurus-v2-intro)
-+ [10 大靜態網站生成工具](https://www.gushiciku.cn/pl/p3Dp/zh-tw)
-+ [基于 React 的 CMS 框架对比：Docusaurus vs. Gatsby](https://charlesfeng.cn/gatsby-vs-docusaurus/)
-+ [Docusaurus 配置 GitHub Action 自动发布](https://blog.alanwei.com/blog/2021/03/21/docusaurus-github-deploy/)
-+ [[部落格改版學DevOps][08]netlify 超佛心的靜態網站hosting服務 - 不只做hosting還有更多](https://blog.alantsai.net/posts/2018/07/migrate-blog-to-ssg-demo-devops-8-netlify-free-static-site-hosting-service#WizKMOutline_1530449275854491)
+- [Docusaurus 2 介紹與使用](https://eddychang.me/docusaurus-v2-intro)
+- [10 大靜態網站生成工具](https://www.gushiciku.cn/pl/p3Dp/zh-tw)
+- [基于 React 的 CMS 框架对比：Docusaurus vs. Gatsby](https://charlesfeng.cn/gatsby-vs-docusaurus/)
+- [Docusaurus 配置 GitHub Action 自动发布](https://blog.alanwei.com/blog/2021/03/21/docusaurus-github-deploy/)
+- [[部落格改版學 DevOps][08]netlify 超佛心的靜態網站 hosting 服務 - 不只做 hosting 還有更多](https://blog.alantsai.net/posts/2018/07/migrate-blog-to-ssg-demo-devops-8-netlify-free-static-site-hosting-service#WizKMOutline_1530449275854491)
 
 [![hackmd-github-sync-badge](https://hackmd.io/xM0LI_7bSdSf8wGNiAbqcQ/badge)](https://hackmd.io/xM0LI_7bSdSf8wGNiAbqcQ)

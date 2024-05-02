@@ -26,24 +26,24 @@ type: Post
 網站部署大致可分為下列幾個步驟：
 
 1. 設定 AWS EC2 主機
-    - 註冊 AWS 會員
-    - 架設遠端主機 EC2 
-    - 選擇 Ubuntu Server 並完成設定
-    - 儲存私鑰後運行主機
-    - 以 CLI 輸入指令連線主機
+   - 註冊 AWS 會員
+   - 架設遠端主機 EC2
+   - 選擇 Ubuntu Server 並完成設定
+   - 儲存私鑰後運行主機
+   - 以 CLI 輸入指令連線主機
 2. 更新 Ubuntu Server
 3. 設定 LAMP Server
-    - 安裝 Tasksel
-    - 以 Tasksel 套件來安裝 lamp-server
+   - 安裝 Tasksel
+   - 以 Tasksel 套件來安裝 lamp-server
 4. 設定 phpMyAdmin
-    - 安裝 phpmyadmin
-    - 設定使用者密碼
-    - 修改 MySQL 登入設定
-    - 設定 MySQL 的 root password
+   - 安裝 phpmyadmin
+   - 設定使用者密碼
+   - 修改 MySQL 登入設定
+   - 設定 MySQL 的 root password
 5. 設定域名
 6. 部署寫好的程式到 Server
-    - 利用 git clone 上傳檔案
-    - 設定 FileZilla 上傳檔案
+   - 利用 git clone 上傳檔案
+   - 設定 FileZilla 上傳檔案
 
 ---
 
@@ -113,7 +113,7 @@ $ sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
 
 ### `top`：查看主機即時資訊
 
-會進去下方介面，可查看有哪些 process 在運行、或占用多少 Memory等等。點選 Q 鍵可離開。
+會進去下方介面，可查看有哪些 process 在運行、或占用多少 Memory 等等。點選 Q 鍵可離開。
 
 ![](https://i.imgur.com/zgZtaUB.png)
 
@@ -121,7 +121,7 @@ $ sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
 
 輸入 `exit` 後就會直接登出，回到本地端。
 
-這個指令雖然很基本，自己一開始卻沒有想到，反而還會重開 bash 或等它自動斷線XD
+這個指令雖然很基本，自己一開始卻沒有想到，反而還會重開 bash 或等它自動斷線 XD
 此外，bash 可以同時開啟多個視窗，所以是可以分別對本機和遠端主機下指令的。
 
 ---
@@ -266,6 +266,7 @@ $ sudo mysql_secure_installation
 ![](https://i.imgur.com/QpHqCtN.png)
 
 9. 接著在瀏覽器輸入 `<IPv4 地址>/phpmyadmin`，會看到 phpmyadmin 的登入畫面，輸入帳密確認是否能夠登入
+
 - 帳號：root
 - 密碼：`<步驟 6 設定的 root 密碼>`
 
@@ -292,7 +293,7 @@ $ sudo vim /usr/share/phpmyadmin/libraries/plugin_interface.lib.php
 
 將第 551 行的 `count($options) > 0` 去掉，修改後如下：
 
-> 小技巧：可使用 PgDn 按鍵快速往下，不用一行一行往下滑XD
+> 小技巧：可使用 PgDn 按鍵快速往下，不用一行一行往下滑 XD
 
 ```php=
 if ($options != null ) {
@@ -315,10 +316,11 @@ $ sudo vim /usr/share/phpmyadmin/libraries/sql.lib.php
 完成以上步驟後，就可以正常操作 phpmyadmin 了！
 
 參考資料：
+
 - [Day 03 : 環境架設 part II -- MySQL & phpMyAdmin](https://ithelp.ithome.com.tw/articles/10216815)
-- [如何安裝Ubuntu Server 18.04來架設伺服器？](https://magiclen.org/ubuntu-server-18-04/)
+- [如何安裝 Ubuntu Server 18.04 來架設伺服器？](https://magiclen.org/ubuntu-server-18-04/)
 - [安裝 LAMP Server + phpMyAdmin 在 Linux 系統上輕鬆架設網站](https://magiclen.org/lamp/)
-- [使用Ubuntu Server架設MySQL伺服器，並於PHP程式中存取MySQL資料庫](https://magiclen.org/ubuntu-server-mysql-php/)
+- [使用 Ubuntu Server 架設 MySQL 伺服器，並於 PHP 程式中存取 MySQL 資料庫](https://magiclen.org/ubuntu-server-mysql-php/)
 
 ---
 
@@ -424,6 +426,7 @@ $ sudo chown ubuntu /var/www/html
 設定步驟如下：
 
 1. 在 FileZilla 新增站台
+
 - 選擇 SFTP 協定
 - 主機輸入 AWS 的 IP 位置
 - 登入型式選擇「金鑰檔案」，也就是設定主機時的那個 `.pem` 檔案
@@ -453,9 +456,9 @@ $db_name = '<資料庫名稱>';
 
 ## 部署心得
 
-終於來到一直很期待的網站部署，想起之前隨意聊就有提過，完成十四週能夠架一個自己的網站，擁有屬於自己的網域，可以帥氣的和朋友分享自己做出的網站了！和助教索取折扣碼的當下，竟然莫名有點感動QQ
+終於來到一直很期待的網站部署，想起之前隨意聊就有提過，完成十四週能夠架一個自己的網站，擁有屬於自己的網域，可以帥氣的和朋友分享自己做出的網站了！和助教索取折扣碼的當下，竟然莫名有點感動 QQ
 
-發現自己終於走到課程的一半，雖然後面還有一段路要走，但也在過程中體會到，自己很喜歡在寫程式這件事中獲得的成就感。好像有點扯遠了，回到這禮拜的部署心得XD
+發現自己終於走到課程的一半，雖然後面還有一段路要走，但也在過程中體會到，自己很喜歡在寫程式這件事中獲得的成就感。好像有點扯遠了，回到這禮拜的部署心得 XD
 
 主要是參考幾位同學的筆記，還有一些網路上的資料，跟著步驟一步步進行部署前的設定。其實筆記中步驟都已經整理得很清楚，自己只是跟隨前人的腳步去操作，也因此少繞了很多遠路，很佩服從零開始摸索的學長姐們，感謝萬分。
 
@@ -486,9 +489,9 @@ Ubuntu Server 是為執行伺服端的應用程式而設計的伺服器版本。
 
 2. 把 markdown 檔案轉成 html 檔
 
-- [markdown在ubuntu上的使用](https://www.itread01.com/content/1546783937.html)
+- [markdown 在 ubuntu 上的使用](https://www.itread01.com/content/1546783937.html)
 
 3. 安裝 hexo 這個框架，能夠支援 Markdown 語法，感覺這比較符合需求
 
-- [Ubuntu 16.04下从零起步搭建配置github.io博客——Hexo](https://lrscy.github.io/2017/11/10/Ubuntu-Github-io-config-Hexo/)
+- [Ubuntu 16.04 下从零起步搭建配置 github.io 博客——Hexo](https://lrscy.github.io/2017/11/10/Ubuntu-Github-io-config-Hexo/)
 - [Hexo+GitHub，新手也可以快速建立部落格](https://blackmaple.me/hexo-tutorial/)

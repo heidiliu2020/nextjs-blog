@@ -6,6 +6,6 @@ export const footerConfigs = {
       'https://github.com/heidiliu2020/nextjs-blog',
     twitter: 'https://twitter.com/heidiliu2020',
     // facebook: 'https://www.facebook.com/eason.blog',
-    linkedin: 'https://www.linkedin.com/in/liuheidi2020',
+    linkedin: 'https://www.linkedin.com/in/jungting-l-85b386200',
   },
 };

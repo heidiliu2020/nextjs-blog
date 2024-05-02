@@ -29,7 +29,7 @@ JavaScript 是一個程式語言，會有程式語言本身規範能用的東西
 
 JS 程式碼可以選擇跑在瀏覽器上，透過瀏覽器這個執行環境提供的東西操控畫面，或是發送 Request。
 
-也可以選擇跑在 Node.js 這個執行環境上面，就可以利用 Node.js 提供的東西，例如使用 file system（控制檔案的介面），或是利用 http這個模組來寫 server。
+也可以選擇跑在 Node.js 這個執行環境上面，就可以利用 Node.js 提供的東西，例如使用 file system（控制檔案的介面），或是利用 http 這個模組來寫 server。
 
 可參考下方示意圖：
 
@@ -41,7 +41,6 @@ JS 程式碼可以選擇跑在瀏覽器上，透過瀏覽器這個執行環境�
 
 以 Node.js 來說，則必須先在電腦上安裝 Node.js 這個執行環境，然後以 CLI 的方式輸入 `node index.js` 這個指令來執行。
 
-
 ## 阻塞與非阻塞
 
 前面有提過 Node.js 有提供控制檔案的介面，讓我們能夠寫 JavaScript 程式碼來讀取與寫入檔案。
@@ -52,12 +51,12 @@ JS 程式碼可以選擇跑在瀏覽器上，透過瀏覽器這個執行環境�
 const fs = require('fs')
 const file = fs.readFileSync('./README.md') // 在這邊等好幾秒才往下執行
 console.log(file)
-  
+
 const arr = []
 for (let i = 2; i <= 99999999; i+=2) {
   arr.push(i)
 }
-  
+
 console.log(arr)
 ```
 
@@ -70,7 +69,7 @@ console.log(arr)
 ```javascript=
 // 讀取內建 fs 模組
 const fs = require('fs')
-  
+
 // 定義讀取檔案完成以後，要執行的 function
 function readFileFinished(err, data) {
   if (err) {
@@ -79,7 +78,7 @@ function readFileFinished(err, data) {
     console.log(data)
   }
 }
-  
+
 // 讀取檔案，第二個參數是 callback function
 fs.readFile('./README.md', readFileFinished);
 
@@ -118,7 +117,7 @@ callback function 的意思其實就是：「當某事發生的時候，請利�
 ```javascript=
 // 讀取內建 fs 模組
 const fs = require('fs')
-  
+
 // 讀取檔案
 fs.readFile('./README.md', function(err, data) {
   if (err) {
@@ -130,6 +129,7 @@ fs.readFile('./README.md', function(err, data) {
 ```
 
 在使用 callback function 時，需注意常見的錯誤：
+
 - 傳進去的參數是 callback function，是一個「function」，而不是 function 執行後的結果
 - 舉例來說，fn 是一個 function；fn() 則是執行 function，並且會把執行完的回傳結果當作 callback function
 
@@ -180,7 +180,7 @@ function tick() {
 
 前面是以 Node.js 當做例子，再來回到我們熟悉的瀏覽器。
 
-假設我們今天在 JavaScript 有一個函式叫做 假設我們有一個函式叫做getAPIResponse，能後和後端 API 串接拿取資料。
+假設我們今天在 JavaScript 有一個函式叫做 假設我們有一個函式叫做 getAPIResponse，能後和後端 API 串接拿取資料。
 
 同步版本：
 
@@ -203,12 +203,12 @@ function handleResponst() {
   console.log(response)
 }
 getAPIResponse(handleResponst)
-  
+
 // 範例二：匿名函式
 getAPIResponse(function(err, response) {
   console.log(response)
 })
-  
+
 // 範例三：利用 ES6 箭頭函式簡化過後
 getAPIResponse((err, response) => {
   console.log(response)

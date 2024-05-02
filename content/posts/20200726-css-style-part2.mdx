@@ -26,7 +26,7 @@ type: Post
  P2 你知道 :nth-child 的各種用法
  P2 你熟悉 CSS selector，可以輕鬆選到想選到的元素
 ```
- 
+
 ## display: inline, block 跟 inline-block 的差別
 
 display 是 CSS 中用於控制排版的屬性。每個 HTML 元素都有一個預設的 display 值，大部分的元素可分為 block（區塊元素）和 inline（行內元素）兩類：
@@ -70,10 +70,10 @@ display 是 CSS 中用於控制排版的屬性。每個 HTML 元素都有一個�
 以製作圖文小卡為例：[DEMO](https://codepen.io/heidiliu2020/embed/VweNLwm?height=327&theme-id=dark&default-tab=css,result)
 
 參考資料：
-1. [CSS教學-關於display:inline、block、inline-block的差別](https://medium.com/@wendy199288/css%E6%95%99%E5%AD%B8-%E9%97%9C%E6%96%BCdisplay-inline-inline-block-block%E7%9A%84%E5%B7%AE%E5%88%A5-1034f38eda82)
+
+1. [CSS 教學-關於 display:inline、block、inline-block 的差別](https://medium.com/@wendy199288/css%E6%95%99%E5%AD%B8-%E9%97%9C%E6%96%BCdisplay-inline-inline-block-block%E7%9A%84%E5%B7%AE%E5%88%A5-1034f38eda82)
 2. [金魚都能懂網頁設計入門 : 網頁兩大主角 (鐵人賽第十天)](https://ithelp.ithome.com.tw/articles/10204956)
 3. [關於"display" 屬性 - CSS](https://zh-tw.learnlayout.com/display.html)
-
 
 ## Position 屬性
 
@@ -106,17 +106,16 @@ display 是 CSS 中用於控制排版的屬性。每個 HTML 元素都有一個�
 以製作彈窗為例：[DEMO](https://codepen.io/heidiliu2020/embed/xxZBobX?height=265&theme-id=dark&default-tab=css,result)
 
 參考資料：
-1. [關於position 屬性 - 學習CSS 版面配置](https://zh-tw.learnlayout.com/position.html)
+
+1. [關於 position 屬性 - 學習 CSS 版面配置](https://zh-tw.learnlayout.com/position.html)
 2. [CSS position 位置屬性（定位） - Wibibi](https://www.wibibi.com/info.php?tid=156)
 3. [position 屬性的基礎概念 - Medium](https://medium.com/ui-ux%E7%B7%B4%E5%8A%9F%E5%9D%8A/position-%E5%B1%AC%E6%80%A7%E7%9A%84%E5%9F%BA%E7%A4%8E%E6%A6%82%E5%BF%B5-5931254e5203)
-
 
 ## 水平置中：
 
 ### `margin: auto;`
 
 設定左右外邊距（margin-left 與 margin-right）為 auto 可達成水平居中。
-
 
 參考資料：[學習 CSS 版面配置](https://zh-tw.learnlayout.com/margin-auto.html)
 
@@ -149,7 +148,7 @@ html, body, h1, h2, h3, h4, p{
 }
 ```
 
-###  CSS Reset 與 CSS normalize
+### CSS Reset 與 CSS normalize
 
 - [CSS Reset](https://meyerweb.com/eric/tools/css/reset/)
 
@@ -161,7 +160,7 @@ html, body, h1, h2, h3, h4, p{
 最大的特色就是保留原本預設 HTML 標籤的樣式，僅針對不同瀏覽器與各版本間不相容的標籤進行些微調整。
 
 參考資料：
-[Day21：小事之CSS Reset 與CSS normalize](https://ithelp.ithome.com.tw/articles/10196528)
+[Day21：小事之 CSS Reset 與 CSS normalize](https://ithelp.ithome.com.tw/articles/10196528)
 
 ## 切版注意事項
 
@@ -175,36 +174,38 @@ html, body, h1, h2, h3, h4, p{
 - 使用行高，但僅限只有一行字的時候才能使用
 
 原理：「DIV 區塊的高度設定 = 文字的 line-height（行高）」
-     
+
 ### 如何水平置中？
 
-- 文字水平置中：`text-align: center` 
+- 文字水平置中：`text-align: center`
 - 區塊元素本身置中：`margin: 0 auto`
-
 
 ## 如何讓 img 自適應容器大小
 
-不管容器有多大，只要將 img 的寬高設定成 100 %（這裡的100%是相對於父級寬高而言）就能自適應容器大小。
+不管容器有多大，只要將 img 的寬高設定成 100 %（這裡的 100%是相對於父級寬高而言）就能自適應容器大小。
 
-參考資料：[css讓圖片自適應容器（div）大小- IT閱讀 - ITREAD01.COM](https://www.itread01.com/content/1546673250.html)
+參考資料：[css 讓圖片自適應容器（div）大小- IT 閱讀 - ITREAD01.COM](https://www.itread01.com/content/1546673250.html)
 
 ## CSS 屬性用法紀錄
 
 1. [CSS 限制字數/行數，讓過長的文字隱藏變"…"](https://blog.ja-anything.com/2018/01/17/css-%E8%AE%93%E9%81%8E%E9%95%B7%E7%9A%84%E6%96%87%E5%AD%97%E9%9A%B1%E8%97%8F%E8%AE%8A-css-to-make-text-overflow-elegant-is-with-ellipses-single-or-multiple-lines/)
+
 ```css
-  /* 修飾過長的文字，ellipsis：用點點點來表示被切斷的字串 */
-  text-overflow: ellipsis;
-  /* 不進行換行 */
-  white-space: nowrap
+/* 修飾過長的文字，ellipsis：用點點點來表示被切斷的字串 */
+text-overflow: ellipsis;
+/* 不進行換行 */
+white-space: nowrap;
 ```
 
 2. [box-shadow 屬性的參數](https://www.w3cplus.com/content/css3-box-shadow)
+
 ```css
-  /* 投影方式 X軸偏移 Y軸偏移 模糊半徑 擴展半徑 顏色}*/
-box-shadow:inset x-offset y-offset blur-radius spread-radius color
+/* 投影方式 X軸偏移 Y軸偏移 模糊半徑 擴展半徑 顏色}*/
+box-shadow: inset x-offset y-offset blur-radius spread-radius color;
 ```
 
 3. [[教學] CSS3 半透明背景的四種設定方法 (RGBa、HSLa、Opacity、HEX)](https://www.minwt.com/webdesign-dev/css/21538.html)
+
 ```css
 opacity: x
 /* x　取值 0~1，該區塊元素均會調整透明度 */
@@ -213,6 +214,7 @@ background: rgba(red, green, blue, alpha)
 ```
 
 4. 決定換行的屬性
+
 ```css
 /* 預設不換行 */
 flex-wrap: no-wrap;

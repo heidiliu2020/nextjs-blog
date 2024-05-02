@@ -21,8 +21,8 @@ type: Post
 - 用於 Angular 的狀態管理框架（State Management），使用 RxJS 管理程式中的所有狀態
 - 通常應用於大型專案，需處理較複雜的狀態管理
 - 為單一 Store
-    - 優點：可循環調用其他 State 的 Action、統一使用 dispatch  調度 action
-    - 缺點：需統一管理所有的 Action、Action 類型不能重複
+  - 優點：可循環調用其他 State 的 Action、統一使用 dispatch 調度 action
+  - 缺點：需統一管理所有的 Action、Action 類型不能重複
 
 ## 安裝 NGXS
 
@@ -32,7 +32,7 @@ type: Post
 npm install @ngxs/store
 ```
 
-b. 在 `app.module.ts` 引入 `NgxsModule`
+b. 在  `app.module.ts` 引入  `NgxsModule`
 
 ```tsx
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,10 +47,10 @@ import { environment } from "src/environments/environment"
 								 AppComponent
 								],
   imports: [
-						BrowserModule, 
+						BrowserModule,
             NgxsModule.forRoot([], {                    // 註冊 state
 							developmentMode: !environment.production. // 開發模式，可進行額外檢查
-						}) 
+						})
            ],
   providers: [],
   bootstrap: [AppComponent]
@@ -67,41 +67,39 @@ NGXS 包含四個概念，以下是官網介紹：
 - State: Class definition of the state
 - Selects: State slice selectors
 
-
 ![upload successful](https://heidiliu2020.github.io/images/pasted-1.png)
-
 
 ### 建立 State：定義狀態容器的類
 
 - State 是單純的 class 檔
-- 透過 `ng g class <<state file name>>` 指令產生 ts 檔案
-    - 例如：`ng g class todos.state`，Class 名稱會是 `TodosState`
+- 透過  `ng g class <<state file name>>` 指令產生 ts 檔案
+  - 例如：`ng g class todos.state`，Class 名稱會是 `TodosState`
 - `todos.state.ts`：
-    
-    ```tsx
-    import { Injectable } from '@angular/core';
-    import { State } from '@ngxs/store';
-    
-    export class TodoItem {
-      constructor(public content: string) {}
-    }
-    
-    export interface TodosStateModel {
-      dataset: TodoItem[];
-    }
-    
-    @State<TodosStateModel>({ // 用來描述 state 狀態，定義資料型別
-      name: 'todos',          // state 在 store 的名稱
-      defaults: {             // 預設值
-        dataset: []
-      }
-    })
-    export class TodosState {}
-    ```
-    
+  ```tsx
+  import { Injectable } from '@angular/core';
+  import { State } from '@ngxs/store';
+
+  export class TodoItem {
+    constructor(public content: string) {}
+  }
+
+  export interface TodosStateModel {
+    dataset: TodoItem[];
+  }
+
+  @State<TodosStateModel>({
+    // 用來描述 state 狀態，定義資料型別
+    name: 'todos', // state 在 store 的名稱
+    defaults: {
+      // 預設值
+      dataset: [],
+    },
+  })
+  export class TodosState {}
+  ```
 
 建立完 state 之後，再到 `app.module.ts`
- 的 `NgxsModule.forRoot([])` 引入 State：
+  的  `NgxsModule.forRoot([])` 引入 State：
 
 ```jsx
 ...
@@ -110,10 +108,10 @@ import { TodosState } from './todos.state';
 ({
   declarations: [AppComponent],
   imports: [
-						BrowserModule, 
-            NgxsModule.forRoot([TodosState], {  
+						BrowserModule,
+            NgxsModule.forRoot([TodosState], {
 							developmentMode: !environment.production.
-						}) 
+						})
            ],
   providers: [],
   bootstrap: [AppComponent]
@@ -125,12 +123,12 @@ export class AppModule {}
 
 - 可直接在 state class 底下，設定要被執行的 action 方法
 - `addTodo(StateContenxt<T>, ActionClass? )`
-    - `StateContenxt<T>`：取得可操作此 state 的 context 物件，內建幾種方法：
-        - `getState()`: T：取得目前 state 的值
-        - `setState(val: T)`：重新建立 or 重設目前 state 的值
-        - `patchState(val: part<T>)`：更新目前 state 的值
-        - `dispatch([actions])`：觸發一或多個 actions，可傳入陣列
-    - ActionClass：取得 action 對應的 Class 實體
+  - `StateContenxt<T>`：取得可操作此 state 的 context 物件，內建幾種方法：
+    - `getState()`: T：取得目前 state 的值
+    - `setState(val: T)`：重新建立 or 重設目前 state 的值
+    - `patchState(val: part<T>)`：更新目前 state 的值
+    - `dispatch([actions])`：觸發一或多個 actions，可傳入陣列
+  - ActionClass：取得 action 對應的 Class 實體
 - `todos.state.ts`：
 
 ```jsx
@@ -161,7 +159,7 @@ export class TodosState {
     constructor(
 	    private apiService: ApiService     // 可注入 service，如：呼叫 API
 		){ }
-    
+
     @Action(ADDTODO)                     // 定義 action 名稱
 	 	addTodo({ getState, setState }: StateContext<TodosStateModel>, { payload }: ADDTODO) {
 				return this.apiService.todoApi().pipe(  // 呼叫 API
@@ -205,10 +203,10 @@ export class AppComponent {
 ### Select：從全域 Store 容器中取得特定 State
 
 - `@Select`：如上方範例，可透過 path 訂閱指定 state，其資料型態為 Observable
-    - 若不使用 `@Select` 裝飾器，也可改寫成 `store.select()` 語法，如下：
+  - 若不使用 `@Select` 裝飾器，也可改寫成 `store.select()` 語法，如下：
 
 ```jsx
-export class AppComponent {  
+export class AppComponent {
   todos: Observable<TodoItem[]>;
 
   constructor(private store: Store) {
@@ -223,9 +221,7 @@ export class AppComponent {
 
 ```html
 <ul>
-  <li *ngFor="let item of todos | async">
-    {{ item.content }}
-  </li>
+  <li *ngFor="let item of todos | async">{{ item.content }}</li>
 </ul>
 <input type="text" #todoInput />
 <button (click)="addTodo(todoInput)">Add Todo</button>
@@ -279,6 +275,6 @@ addTodo(input) {
 ## 參考資料
 
 - **[NGXS: Introduction](https://ngxs.io/)**
-- **[[Angular] 第一次體驗NGXS](https://blog.kevinyang.net/2018/03/30/angular-ngxs/)**
-- **[ngxs入门- SegmentFault 思否](https://segmentfault.com/a/1190000016513684)**
+- **[[Angular] 第一次體驗 NGXS](https://blog.kevinyang.net/2018/03/30/angular-ngxs/)**
+- **[ngxs 入门- SegmentFault 思否](https://segmentfault.com/a/1190000016513684)**
 - **[Angular 真的需要状态管理么？ - 知乎专栏](https://zhuanlan.zhihu.com/p/45121775)**

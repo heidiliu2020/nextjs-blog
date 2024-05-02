@@ -17,7 +17,7 @@ type: Post
 > 本篇為 [[BE201] 後端中階：Express 與 Sequelize](https://lidemy.com/p/be201-express-sequelize) 這門課程的學習筆記。如有錯誤歡迎指正！
 
 在之前的課程中，我們學到如何使用 Express 這套框架，以及在 Express 扮演重要角色的 Middleware：
- 
+
 - [[week 17] 後端中階 - 使用 Node.js + Express 框架建立一個靜態網頁](https://hackmd.io/@Heidi-Liu/note-be201-express-node)
 - [[week 17] 後端中階 - Express 中不可或缺的拼圖：淺談 Middleware](https://hackmd.io/@Heidi-Liu/note-be201-express-middleware)
 
@@ -33,9 +33,9 @@ type: Post
 2. 規劃資料庫結構：users table
 3. 載入需要的模組，設定 app 路由部分
 4. 依照 MVC 架構撰寫程式碼：
-    - 設定 Controller：針對不同路由進行控制
-    - 設定 Model：如何處理資料
-    - 設定 View：如何呈現畫面
+   - 設定 Controller：針對不同路由進行控制
+   - 設定 Model：如何處理資料
+   - 設定 View：如何呈現畫面
 
 接下來我們也同樣會依照這個流程來進行實作。
 
@@ -240,7 +240,7 @@ app.post('/register', userController.handleRegister)
       return req.flash('errorMessage', '缺少必要欄位');
     }
     // 資料都沒問題的話，就可透過 userModel 寫入資料
-    // 傳入一個物件，若有錯誤會回傳 cb 
+    // 傳入一個物件，若有錯誤會回傳 cb
     userModel.add({
       username,
       nickname,
@@ -256,7 +256,7 @@ app.post('/register', userController.handleRegister)
       res.redirect('/');
     });
   },
-  
+
   logout: (req, res) => {
   // 登出就把 session 重置
   req.session.username = null;
@@ -558,7 +558,7 @@ const commentModel = {
     db.query(
       `
       SELECT U.nickname, C.content FROM comments as C
-      LEFT JOIN users as U on U.username = C.username       
+      LEFT JOIN users as U on U.username = C.username
       `,
       (err, results) => {
       if (err) return cb(err);
@@ -656,11 +656,12 @@ app.locals.shortDateFormat = shortDateFormat;
 
 1. 產品會有哪些功能：新增留言、編輯留言、刪除留言
 2. 如何設計路由
- - 刪除留言
-   - `GET /delete_comments/:id => /`
-  - 編輯留言
-    - 跳轉到編輯頁面 `GET /update_comments/:id => form`
-    - 編輯完成提交 `POST /update_comments/:id => /`
+
+- 刪除留言
+  - `GET /delete_comments/:id => /`
+- 編輯留言
+  - 跳轉到編輯頁面 `GET /update_comments/:id => form`
+  - 編輯完成提交 `POST /update_comments/:id => /`
 
 ### Step2. 規劃資料庫結構
 
@@ -695,10 +696,10 @@ app.locals.shortDateFormat = shortDateFormat;
     // 資料庫關聯
     db.query(
       `
-      SELECT U.nickname, U.created_at, C.content, C.id, C.username, C.created_at 
+      SELECT U.nickname, U.created_at, C.content, C.id, C.username, C.created_at
       FROM comments as C
       LEFT JOIN users as U on U.username = C.username
-      ORDER BY C.created_at DESC       
+      ORDER BY C.created_at DESC
       `,
       (err, results) => {
       if (err) return cb(err);
@@ -731,11 +732,11 @@ app.get('/delete_comments/:id', commentController.delete)
     db.query(
       `
         DELETE FROM comments WHERE id=? AND username=?
-      `, [id, username], 
+      `, [id, username],
       (err, results) => {
         if (err) return cb(err);
         cb(null);
-    });  
+    });
   }
 ```
 
@@ -774,10 +775,10 @@ app.post('/update_comments/:id', commentController.handleupdate)
     // 資料庫關聯
     db.query(
       `
-      SELECT U.nickname, U.created_at, C.content, C.id, C.username, C.created_at 
+      SELECT U.nickname, U.created_at, C.content, C.id, C.username, C.created_at
       FROM comments as C
       LEFT JOIN users as U on U.username = C.username
-      WHERE C.id = ?  
+      WHERE C.id = ?
       `, [id],
       (err, results) => {
         if (err) return cb(err);
@@ -856,7 +857,7 @@ app.post('/update_comments/:id', commentController.handleupdate)
 
 ### Step5. 美化頁面
 
-透過 [EJS]((https://ejs.co/#install)) 提供的語法 `include()` 我們可以建立模版，獨立出每個頁面都有的元素，例如 head 和 navbar 等等，如此就能簡化程式碼，範例如下：
+透過 [EJS](<(https://ejs.co/#install)>) 提供的語法 `include()` 我們可以建立模版，獨立出每個頁面都有的元素，例如 head 和 navbar 等等，如此就能簡化程式碼，範例如下：
 
 ```htmlmixed=
 <%- include('header'); -%>
@@ -890,23 +891,23 @@ app.post('/update_comments/:id', commentController.handleupdate)
 </head>
 
   <h1>簡易會員系統</h1>
-  
+
   <h2><%= errorMessage %></h2>
-  
+
   <% if(username) { %>
   <div>Hello, <%= username + '!' %></div>
   <a href="/logout">登出</a>
-  
+
   <form method="POST" action="/comments">
     <textarea name="content" id="" cols="30" rows="10"></textarea>
     <input type="submit" />
   </form>
-  
+
   <% } else { %>
   <a href="/register">註冊</a>
   <a href="/login">登入</a>
   <% } %>
-  
+
   <% comments.forEach(function(comment) { %>
   <div>
     <h2><%= comment.nickname %></h2>
@@ -1072,7 +1073,7 @@ integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xX
       <%= errorMessage %>
     </div>
     <% } %>
-    
+
     <% if(username) { %>
     <form method="POST" action="/comments">
       <div class="form-group">
@@ -1084,7 +1085,7 @@ integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xX
     <% } else { %>
       <div class="alert alert-warning" role="alert">留言請先登入</div>
     <% } %>
-    
+
     <div class="card-container d-flex flex-wrap">
       <% comments.forEach(function(comment) { %>
         <div class="card m-2" style="width: 18rem; height: 16rem;">
@@ -1158,9 +1159,9 @@ integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xX
 2. 規劃資料庫結構
 3. 載入需要的模組，設定 app 路由部分
 4. 依照 MVC 架構撰寫程式碼：
-    - 設定 Controller：針對不同路由進行控制
-    - 設定 Model：如何處理資料
-    - 設定 View：如何呈現畫面
+   - 設定 Controller：針對不同路由進行控制
+   - 設定 Model：如何處理資料
+   - 設定 View：如何呈現畫面
 
 也藉這個機會來複習 BootStrap 使用方式，這和之前「先刻版面再加入功能」的模式正好相反，反而是先把功能做好，再套用現有樣式，這也是藉由 MVC 將畫面和功能分割開來才能夠辦到。
 

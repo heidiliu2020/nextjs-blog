@@ -22,7 +22,7 @@ type: Post
  P1 學習如何使用 Express 及其相關套件
  P1 我理解為什麼會需要框架
 ```
- 
+
 ---
 
 ## Middleware 中間介
@@ -44,6 +44,7 @@ type: Post
 例如先前範例中的 `app.get('/todos', todoController.getAll)`，其實就可以看做是一個 middleware。
 
 我們可透過 middleware function 傳入三個參數，然後輸出想要的資料：
+
 - 第一個參數是 request
 - 第二個參數是 response
 - 再透過第三個參數 next 把控制權轉移到下一個 middleware
@@ -72,7 +73,7 @@ app.get('/todos/:id', todoController.get)
 app.listen(port, () => {
   db.connect()
   console.log(`Example app listening at http://localhost:${port}`)
-}) 
+})
 ```
 
 重整瀏覽器頁面時，會發現畫面什麼東西都沒有：
@@ -190,7 +191,7 @@ app.use(checkPermission)
 app.get('/todos', checkPermission, todoController.getAll)
 ```
 
-在 `/todos` 這個路由，必須加上 `?admin=1`  才能顯示畫面：
+在 `/todos` 這個路由，必須加上 `?admin=1` 才能顯示畫面：
 
 ![](https://i.imgur.com/38VqxUf.png)
 
@@ -402,7 +403,7 @@ $ npm install express-session
 
 接著延續前面的 todolist 範例，實作一個簡單的登入功能。
 
-1. 在 index.js引入 express-session 套件：
+1. 在 index.js 引入 express-session 套件：
 
 ```javascript=
 // 引入 express-session
@@ -502,9 +503,10 @@ app.get('/logout', (req, res) => {
 ```
 $ npm install connect-flash
 ```
+
 ### 實作錯誤顯示功能
 
-1. 在 index.js引入 connect-flash 套件：
+1. 在 index.js 引入 connect-flash 套件：
 
 ```javascript=
 // 引入 connect-flash
@@ -599,13 +601,13 @@ addTodo: (req, res) => {
 2. 規劃資料庫結構
 3. 載入需要的模組，設定 app 路由部分
 4. 依照 MVC 架構撰寫程式碼：
-    - 設定 Controller：針對不同路由進行控制
-    - 設定 Model：如何處理資料
-    - 設定 View：如何呈現畫面
+   - 設定 Controller：針對不同路由進行控制
+   - 設定 Model：如何處理資料
+   - 設定 View：如何呈現畫面
 
 在接下來的課程，我們會綜合之前所學的知識，來實作簡單的會員註冊系統以及留言版功能。
 
 參考資料：
 
 - [「筆記」- 何謂 Middleware？如何幫助我們建立 Express 的應用程式](https://medium.com/pierceshih/%E7%AD%86%E8%A8%98-%E4%BD%95%E8%AC%82-middleware-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%88%91%E5%80%91%E5%BB%BA%E7%AB%8B-express-%E7%9A%84%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F-19082b1d8e06)
-- [bodyParser中间件的研究](https://segmentfault.com/a/1190000004407008)
+- [bodyParser 中间件的研究](https://segmentfault.com/a/1190000004407008)

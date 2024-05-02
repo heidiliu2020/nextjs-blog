@@ -21,12 +21,12 @@ Angular 是由 Google 開發，基於 TypeScript 編寫的 JavaScript 前端框�
 
 1.x 版的 AngularJS 其實還算是函式庫，直到 Angular 2 版本出現之後，與其說是一套框架，更常被稱作是一個開發平台，因為 Angular 強大的地方在於，整合了非常多功能給開發者使用：
 
-* i18n - 多國語系化
-* Animation - 動畫
-* Router - 提供路由機制開發 SPA 
-* [Angular CLI](https://cli.angular.io/) - 命令列工具，可用來建立專案、建立應用和函式庫程式碼
-* Material - Google 力推的 Material 網頁設計框架
-* Augury - 官方出版的 Google Chrome 開發者工具，用於分析頁面中所用元件的狀態與方法
+- i18n - 多國語系化
+- Animation - 動畫
+- Router - 提供路由機制開發 SPA
+- [Angular CLI](https://cli.angular.io/) - 命令列工具，可用來建立專案、建立應用和函式庫程式碼
+- Material - Google 力推的 Material 網頁設計框架
+- Augury - 官方出版的 Google Chrome 開發者工具，用於分析頁面中所用元件的狀態與方法
 
 > 可參考 [Angular 2 skill map](https://github.com/TeamStuQ/skill-map/blob/master/data/designbyStuQ/png-Angular2-by-StuQ.png)。
 
@@ -38,32 +38,33 @@ Angular 是由 Google 開發，基於 TypeScript 編寫的 JavaScript 前端框�
 
 Angular App 主要由這八個元素構成：
 
-* Metadata 元資料、描述資料
-  * 在 `@Component`、`@NgModule` 裝飾器函式中，用於描述該元件的附加資料
-  * 元資料中指定的樣式只會作用於該元件
-* Template：模板，呈現畫面
-  * 權重：Template Input Variable（模板輸入變數）= Template Reference Variable（模板參考變數） > Component Variable
-* Component：元件，為最小 UI 單位
-  * Directive + Template 的組合
-* Dependency Injection：倚賴注入
-  * DI 是一種 Design Pattern，為了將功能集中，減少相依性的設計模式
-* Service：服務，針對特定事情處理邏輯
-* Directive：指令，有三種呈現形式
-  * Component 元件，擁有樣板的指令
-  * Structural Directive 結構指令
-    * 修改檢視結構
-    * 如：`*ngFor`、`*ngIf`、`NgSwitch`，星號是用來簡化復雜語法的「語法糖」
-  * Attribute Directive 屬性指令
-    * 改變元素的外觀或行為
-    * 如：`NgClass`、`NgStyle`、`NgModel`
-* Data Binding：資料綁定
-  * Property Binding 屬性單向綁定
-  * Event Binding 事件單向綁定
-  * Two Way Binding 屬性與事件雙向綁定
-* Module：模組，打包功能以實現功能模組化
+- Metadata 元資料、描述資料
+  - 在 `@Component`、`@NgModule` 裝飾器函式中，用於描述該元件的附加資料
+  - 元資料中指定的樣式只會作用於該元件
+- Template：模板，呈現畫面
+  - 權重：Template Input Variable（模板輸入變數）= Template Reference Variable（模板參考變數） > Component Variable
+- Component：元件，為最小 UI 單位
+  - Directive + Template 的組合
+- Dependency Injection：倚賴注入
+  - DI 是一種 Design Pattern，為了將功能集中，減少相依性的設計模式
+- Service：服務，針對特定事情處理邏輯
+- Directive：指令，有三種呈現形式
+  - Component 元件，擁有樣板的指令
+  - Structural Directive 結構指令
+    - 修改檢視結構
+    - 如：`*ngFor`、`*ngIf`、`NgSwitch`，星號是用來簡化復雜語法的「語法糖」
+  - Attribute Directive 屬性指令
+    - 改變元素的外觀或行為
+    - 如：`NgClass`、`NgStyle`、`NgModel`
+- Data Binding：資料綁定
+  - Property Binding 屬性單向綁定
+  - Event Binding 事件單向綁定
+  - Two Way Binding 屬性與事件雙向綁定
+- Module：模組，打包功能以實現功能模組化
 
 參考資料：
-- [Angular小教室 - 用Note List了解頁面基本元素 (基礎篇)](https://github.com/marshal604/blog/issues/2)
+
+- [Angular 小教室 - 用 Note List 了解頁面基本元素 (基礎篇)](https://github.com/marshal604/blog/issues/2)
 
 ---
 
@@ -184,10 +185,10 @@ $ ng g c <name>
 
 ![](https://i.imgur.com/HDeeSVB.png)
 
-* todo-list.component.html：模板 Template
-* todo-list.component.spec.ts：執行 ng test 命令會透過 Karma 進行測試
-* todo-list.component.ts：元件 Component
-* todo-list.component.css：樣式
+- todo-list.component.html：模板 Template
+- todo-list.component.spec.ts：執行 ng test 命令會透過 Karma 進行測試
+- todo-list.component.ts：元件 Component
+- todo-list.component.css：樣式
 
 ## 小結
 
@@ -196,8 +197,9 @@ $ ng g c <name>
 雖然一時半刻還無法消化，但其實也不是說剛開始就要完全了解，有些概念還是和 React 有相似之處，總之就先跟著官網提供的[練習指南](https://angular.tw/tutorial)，一步一步跟著實作，慢慢踏入 Angular 的世界！
 
 參考資料：
+
 - [Angular 全集中筆記 系列](https://ithelp.ithome.com.tw/users/20109645/ironman/3762)
 - [Angular 深入淺出三十天 系列](https://ithelp.ithome.com.tw/users/20090728/ironman/1600)
 - [Angular 大師之路 系列](https://ithelp.ithome.com.tw/users/20020617/ironman/1630)
 - [前端工程的夢幻逸品：Angular 2 開發框架介紹
-](https://blog.miniasp.com/post/2016/07/26/Introduction-to-Angular-2)
+  ](https://blog.miniasp.com/post/2016/07/26/Introduction-to-Angular-2)

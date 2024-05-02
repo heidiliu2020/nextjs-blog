@@ -14,12 +14,12 @@ type: Post
 ---
 
 ![](https://i.imgur.com/xLBMhye.png)
+
 > 參考資料：https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html
 
 ## What is WebSocket?
 
 [WebSocket](https://zh.wikipedia.org/zh-tw/WebSocket) 是 [HTML5](https://zh.wikipedia.org/zh-tw/HTML5) 提供的一種網路傳輸協定，是瀏覽器（Client）與伺服器（Server）交換資料的方式之一。
-
 
 與我們較為熟知的 [HTTP](https://zh.wikipedia.org/zh-tw/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE) 或 [HTTPS](https://zh.wikipedia.org/zh-tw/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE) 協定，同樣位於 [OSI 模型](https://zh.wikipedia.org/zh-tw/OSI%E6%A8%A1%E5%9E%8B)的[應用層](https://zh.wikipedia.org/zh-tw/%E5%BA%94%E7%94%A8%E5%B1%82)，且基於傳輸層的 [TCP](https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE) 協定。其最大不同在於，WebSocket 協定只需連線一次，就能保持雙向溝通，不需重複發送 Request，因此回應更即時，進而提升 Web 通訊速度。
 
@@ -62,8 +62,8 @@ Server 端回應資訊：
 
 ```jsx
 HTTP/1.1 101  Switching Protocols    // 表示成功建立連接
-Upgrade: websocket     
-Connection: Upgrade     
+Upgrade: websocket
+Connection: Upgrade
 Sec-WebSocket-Accept: K7DJLdLooIwIG/MOpvWFB3y3FE8= // Server 端回覆對應的加密
 Sec-WebSocket-Protocol: chat         // Server 端使用的協議
 Sec-WebSocket-Location: ws://localhost:8080
@@ -94,32 +94,33 @@ $ npm install express
 $ npm install ws
 ```
 
-- 安裝完套件後，在專案中建立 `server.js` 檔案，作為專案的進入點：
+- 安裝完套件後，在專案中建立 `server.js`  檔案，作為專案的進入點：
 
 ```jsx
 // import library
-const express = require('express')
-const ServerSocket = require('ws').Server   // 引用 Server
+const express = require('express');
+const ServerSocket = require('ws').Server; // 引用 Server
 
 // 指定一個 port
-const PORT = 8080
+const PORT = 8080;
 
 // 建立 express 物件並用來監聽 8080 port
-const server = express()
-    .listen(PORT, () => console.log(`[Server] Listening on https://localhost:${PORT}`))
+const server = express().listen(PORT, () =>
+  console.log(`[Server] Listening on https://localhost:${PORT}`)
+);
 
 // 建立實體，透過 ServerSocket 開啟 WebSocket 的服務
-const wss = new ServerSocket({ server })
+const wss = new ServerSocket({ server });
 
 // Connection opened
-wss.on('connection', ws => {
-    console.log('[Client connected]')
+wss.on('connection', (ws) => {
+  console.log('[Client connected]');
 
-    // Connection closed
-    ws.on('close', () => {
-        console.log('Close connected')
-    })
-})
+  // Connection closed
+  ws.on('close', () => {
+    console.log('Close connected');
+  });
+});
 ```
 
 即可輸入下方指令來運行 Server：
@@ -140,21 +141,22 @@ $ node server.js
 
 ```html
 <html>
-    <head>
-    </head>
-    <body>
-        <!-- Connect or Disconnect WebSocket Server -->
-        <button id="connect">Connect</button>
-        <button id="disconnect">Disconnect</button>
+  <head> </head>
+  <body>
+    <!-- Connect or Disconnect WebSocket Server -->
+    <button id="connect">Connect</button>
+    <button id="disconnect">Disconnect</button>
 
-        <!-- Send Message to Server -->
-        <div>
-            Message: <input type="text" id="sendMsg" ><button id="sendBtn">Send</button>
-        </div>
+    <!-- Send Message to Server -->
+    <div>
+      Message: <input type="text" id="sendMsg" /><button id="sendBtn">
+        Send
+      </button>
+    </div>
 
-        <!-- Import index.js after UI rendered -->
-        <script src='./index.js'></script>
-    </body>
+    <!-- Import index.js after UI rendered -->
+    <script src="./index.js"></script>
+  </body>
 </html>
 ```
 
@@ -165,35 +167,35 @@ $ node server.js
 - 邏輯處理：新增一個 index.js 檔案
 
 ```jsx
-var ws
+var ws;
 
 // 監聽 click 事件
 document.querySelector('#connect')?.addEventListener('click', (e) => {
-    console.log('[click connect]')
-    connect()
-})
+  console.log('[click connect]');
+  connect();
+});
 
 document.querySelector('#disconnect')?.addEventListener('click', (e) => {
-    console.log('[click disconnect]')
-    disconnect()
-})
+  console.log('[click disconnect]');
+  disconnect();
+});
 
 document.querySelector('#sendBtn')?.addEventListener('click', (e) => {
-    const msg = document.querySelector('#sendMsg')
-    sendMessage(msg?.value)
-})
+  const msg = document.querySelector('#sendMsg');
+  sendMessage(msg?.value);
+});
 
-function connect() { 
-    // Create WebSocket connection
-    ws = new WebSocket('ws://localhost:8080') 
-    // 在開啟連線時執行
-    ws.onopen = () => console.log('[open connection]')
+function connect() {
+  // Create WebSocket connection
+  ws = new WebSocket('ws://localhost:8080');
+  // 在開啟連線時執行
+  ws.onopen = () => console.log('[open connection]');
 }
 
 function disconnect() {
-    ws.close()
-    // 在關閉連線時執行
-    ws.onclose = () => console.log('[close connection]')
+  ws.close();
+  // 在關閉連線時執行
+  ws.onclose = () => console.log('[close connection]');
 }
 ```
 
@@ -221,37 +223,37 @@ Server 端分別能使用 `send` 發送訊息，以及透過監聽 `message` 事
 
 ```jsx
 // Connection opened
-wss.on('connection', ws => {
-    console.log('[Client connected]')
+wss.on('connection', (ws) => {
+  console.log('[Client connected]');
 
-	// Listen for messages from client
-	ws.on('message', data => {
-	    console.log('[Message from client]: ', data)
-	    // Send message to client
-	    ws.send('[Get message from server]')
-	})
+  // Listen for messages from client
+  ws.on('message', (data) => {
+    console.log('[Message from client]: ', data);
+    // Send message to client
+    ws.send('[Get message from server]');
+  });
 
-	// ...
-})
+  // ...
+});
 ```
 
 ### Client 端：處理接發送 message
 
-同樣的，Client 端也能使用 `send` 送出訊息，以及透過 `onmessage` 接收 Server 端的訊息：
+同樣的，Client 端也能使用 `send`  送出訊息，以及透過 `onmessage` 接收 Server 端的訊息：
 
 ```jsx
 // 監聽 click 事件
 document.querySelector('#sendBtn')?.addEventListener('click', (e) => {
-    const msg = document.querySelector('#sendMsg')
-    sendMessage(msg?.value)
-})
+  const msg = document.querySelector('#sendMsg');
+  sendMessage(msg?.value);
+});
 
 // Listen for messages from Server
 function sendMessage(msg) {
-    // Send messages to Server
-    ws.send(msg)
-    // Listen for messages from Server
-    ws.onmessage = event => console.log('[send message]', event)
+  // Send messages to Server
+  ws.send(msg);
+  // Listen for messages from Server
+  ws.onmessage = (event) => console.log('[send message]', event);
 }
 ```
 
@@ -263,22 +265,22 @@ function sendMessage(msg) {
 
 ```jsx
 // Connection opened
-wss.on('connection', ws => {
-  console.log('[Client connected]')
+wss.on('connection', (ws) => {
+  console.log('[Client connected]');
 
-	// Listen for messages from client
-	ws.on('message', data => {
-	    console.log('[Message from client]: ', data)
-	    // Get clients who connected
-	    let clients = wss.clients
-	    // Use loop for sending messages to each client
-	    clients.forEach(client => {
-	        client.send('[Broadcast][Get message from server]')
-	    })
-	})
+  // Listen for messages from client
+  ws.on('message', (data) => {
+    console.log('[Message from client]: ', data);
+    // Get clients who connected
+    let clients = wss.clients;
+    // Use loop for sending messages to each client
+    clients.forEach((client) => {
+      client.send('[Broadcast][Get message from server]');
+    });
+  });
 
-	// ...
-})
+  // ...
+});
 ```
 
 至於如何區分各個 Client，可參考這篇提供的方法：[《webSocketServer node.js how to differentiate clients》](https://stackoverflow.com/questions/13364243/websocketserver-node-js-how-to-differentiate-clients)，直接賦值 id 一個隨機變數。
@@ -287,9 +289,9 @@ wss.on('connection', ws => {
 
 ```jsx
 wss.on('connection', (ws, req) => {
-      var id = req.headers['sec-websocket-key']
-      // Do something...
-})
+  var id = req.headers['sec-websocket-key'];
+  // Do something...
+});
 ```
 
 總之目的是取得各個使用者獨一無二的識別證，透過這些識別證，又能夠對照到我們所熟悉的遊戲 ID 或是帳號。
@@ -300,84 +302,85 @@ wss.on('connection', (ws, req) => {
 
 ```jsx
 // import library
-const express = require('express')
-const ServerSocket = require('ws').Server   // 引用 Server
+const express = require('express');
+const ServerSocket = require('ws').Server; // 引用 Server
 
-const PORT = 8080
+const PORT = 8080;
 
 // 建立 express 物件並用來監聽 8080 port
-const server = express()
-    .listen(PORT, () => console.log(`[Server] Listening on https://localhost:${PORT}`))
+const server = express().listen(PORT, () =>
+  console.log(`[Server] Listening on https://localhost:${PORT}`)
+);
 
 // 建立實體，透過 ServerSocket 開啟 WebSocket 的服務
-const wss = new ServerSocket({ server })
+const wss = new ServerSocket({ server });
 
 // Connection opened
 wss.on('connection', (ws, req) => {
-    ws.id = req.headers['sec-websocket-key'].substring(0, 8)
-    ws.send(`[Client ${ws.id} is connected!]`)
+  ws.id = req.headers['sec-websocket-key'].substring(0, 8);
+  ws.send(`[Client ${ws.id} is connected!]`);
 
-    // Listen for messages from client
-    ws.on('message', data => {
-        console.log('[Message from client] data: ', data)
-        // Get clients who has connected
-        let clients = wss.clients
-        // Use loop for sending messages to each client
-        clients.forEach(client => {
-            client.send(`${ws.id}: ` + data)
-        })
-    })
+  // Listen for messages from client
+  ws.on('message', (data) => {
+    console.log('[Message from client] data: ', data);
+    // Get clients who has connected
+    let clients = wss.clients;
+    // Use loop for sending messages to each client
+    clients.forEach((client) => {
+      client.send(`${ws.id}: ` + data);
+    });
+  });
 
-    // Connection closed
-    ws.on('close', () => {
-        console.log('[Close connected]')
-    })
-})
+  // Connection closed
+  ws.on('close', () => {
+    console.log('[Close connected]');
+  });
+});
 ```
 
 - Client 端：index.js
 
 ```jsx
-var ws
+var ws;
 
 // 監聽 click 事件
 document.querySelector('#connect')?.addEventListener('click', (e) => {
-    connect()
-})
+  connect();
+});
 
 document.querySelector('#disconnect')?.addEventListener('click', (e) => {
-    disconnect()
-})
+  disconnect();
+});
 
 document.querySelector('#sendBtn')?.addEventListener('click', (e) => {
-    const msg = document.querySelector('#sendMsg')
-    sendMessage(msg?.value)
-})
+  const msg = document.querySelector('#sendMsg');
+  sendMessage(msg?.value);
+});
 
-function connect() { 
-    // Create WebSocket connection
-    ws = new WebSocket('ws://localhost:8080') 
-    
-    // ws = new WebSocket('ws://192.168.17.35:58095') 
-    // 在開啟連線時執行
-    ws.onopen = () => {
-        console.log('[open connection]')
-        // Listen for messages from Server
-        ws.onmessage = event => {
-            console.log(`[Message from server]:\n %c${event.data}` , 'color: blue')
-        }
-    }
+function connect() {
+  // Create WebSocket connection
+  ws = new WebSocket('ws://localhost:8080');
+
+  // ws = new WebSocket('ws://192.168.17.35:58095')
+  // 在開啟連線時執行
+  ws.onopen = () => {
+    console.log('[open connection]');
+    // Listen for messages from Server
+    ws.onmessage = (event) => {
+      console.log(`[Message from server]:\n %c${event.data}`, 'color: blue');
+    };
+  };
 }
 
 function sendMessage(msg) {
-    // Send messages to Server
-    ws.send(msg)
+  // Send messages to Server
+  ws.send(msg);
 }
 
 function disconnect() {
-    ws.close()
-    // 在關閉連線時執行
-    ws.onclose = () => console.log('[close connection]')
+  ws.close();
+  // 在關閉連線時執行
+  ws.onclose = () => console.log('[close connection]');
 }
 ```
 
@@ -407,7 +410,7 @@ function disconnect() {
 - send()：發送訊息給 Server
 - close()：關閉連線
 
-## 比較：Socket / WebSocket  / Socket.IO
+## 比較：Socket / WebSocket / Socket.IO
 
 [Socket](https://zh.wikipedia.org/zh-tw/%E7%B6%B2%E8%B7%AF%E6%8F%92%E5%BA%A7)、Websocket、[Socket.io](http://socket.io/) 這三者都和網路即時通訊有關，名稱也有 87 像，但實際上是不同的東西，以下做簡單的整理介紹：
 
@@ -446,6 +449,6 @@ function disconnect() {
 - [WebSocket 是什么原理？为什么可以实现持久连接？](https://www.zhihu.com/question/20215561)
 - [HTML5 WebSocket](http://yiyimiao.com/html/html5-websocket.html)
 - [JavaScript | WebSocket 讓前後端沒有距離 - Medium](https://medium.com/enjoy-life-enjoy-coding/javascript-websocket-%E8%AE%93%E5%89%8D%E5%BE%8C%E7%AB%AF%E6%B2%92%E6%9C%89%E8%B7%9D%E9%9B%A2-34536c333e1b)
-- [【筆記】Socket，Websocket，Socket.io的差異](https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html)
+- [【筆記】Socket，Websocket，Socket.io 的差異](https://leesonhsu.blogspot.com/2018/07/socketwebsocketsocketio.html)
 - [[note] socket.io 筆記](https://pjchender.dev/npm/npm-socket-io/)
-- [用Socket.io 做一個即時聊天室吧！（直播筆記）](https://creativecoding.in/2020/03/25/%E7%94%A8-socket-io-%E5%81%9A%E4%B8%80%E5%80%8B%E5%8D%B3%E6%99%82%E8%81%8A%E5%A4%A9%E5%AE%A4%E5%90%A7%EF%BC%81%EF%BC%88%E7%9B%B4%E6%92%AD%E7%AD%86%E8%A8%98%EF%BC%89/)
+- [用 Socket.io 做一個即時聊天室吧！（直播筆記）](https://creativecoding.in/2020/03/25/%E7%94%A8-socket-io-%E5%81%9A%E4%B8%80%E5%80%8B%E5%8D%B3%E6%99%82%E8%81%8A%E5%A4%A9%E5%AE%A4%E5%90%A7%EF%BC%81%EF%BC%88%E7%9B%B4%E6%92%AD%E7%AD%86%E8%A8%98%EF%BC%89/)
